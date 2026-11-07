@@ -64,6 +64,8 @@ const initialForm: BusinessForm = {
   opening_hours: "",
 };
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 export default function BusinessOnboarding({
   onBack,
@@ -121,7 +123,7 @@ export default function BusinessOnboarding({
 
     try {
       const response = await fetch(
-        "http://localhost:8000/api/businesses/autofill",
+        `${API_BASE_URL}/api/businesses/autofill`,
         {
           method: "POST",
           headers: {
@@ -246,7 +248,7 @@ export default function BusinessOnboarding({
 
     try {
       const response = await fetch(
-        "http://localhost:8000/api/businesses",
+        `${API_BASE_URL}/api/businesses/autofill`,
         {
           method: "POST",
           headers: {
