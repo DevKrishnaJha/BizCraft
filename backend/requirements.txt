@@ -3,3 +3,4 @@ uvicorn[standard]
 python-dotenv
 pydantic
 httpx
+groq>=0.11.0
