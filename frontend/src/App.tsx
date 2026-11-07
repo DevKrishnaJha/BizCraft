@@ -81,7 +81,7 @@ function App() {
 
     const checkBackend = async () => {
       try {
-        const response = await fetch("`${API_BASE_URL}/api/businesses`");
+        const response = await fetch(`${API_BASE_URL}/api/businesses`);
         if (!response.ok) throw new Error("Backend unavailable");
 
         if (mounted) setBackend("connected");
@@ -556,7 +556,7 @@ function Websites({
     async function loadBusinesses() {
       try {
         const response = await fetch(
-          "`${API_BASE_URL}/api/businesses`"
+          `${API_BASE_URL}/api/businesses`
         );
 
         if (!response.ok) {
