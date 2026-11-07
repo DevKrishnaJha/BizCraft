@@ -248,7 +248,7 @@ export default function BusinessOnboarding({
 
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/businesses/autofill`,
+        `${API_BASE_URL}/api/businesses`,
         {
           method: "POST",
           headers: {
