@@ -19,6 +19,8 @@ import {
   Trash2,
 } from "lucide-react";
 import BusinessOnboarding from "./components/BusinessOnboarding";
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 type Page = "Dashboard" | "Websites" | "Settings" | "Create" | "Preview";
 type DesignId =
@@ -79,7 +81,7 @@ function App() {
 
     const checkBackend = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/health");
+        const response = await fetch("`${API_BASE_URL}/api/businesses`");
         if (!response.ok) throw new Error("Backend unavailable");
 
         if (mounted) setBackend("connected");
@@ -283,7 +285,7 @@ function Dashboard({
 
     async function loadBusinesses() {
       try {
-        const response = await fetch("http://localhost:8000/api/businesses");
+        const response = await fetch("/api/businesses");
         if (!response.ok) throw new Error("Could not load your businesses.");
         const data: BusinessRecord[] = await response.json();
         if (mounted) {
@@ -554,7 +556,7 @@ function Websites({
     async function loadBusinesses() {
       try {
         const response = await fetch(
-          "http://localhost:8000/api/businesses"
+          "`${API_BASE_URL}/api/businesses`"
         );
 
         if (!response.ok) {
@@ -652,7 +654,7 @@ function Websites({
     const results = await Promise.allSettled(
       idsToDelete.map(async (id) => {
         const response = await fetch(
-          `http://localhost:8000/api/businesses/${id}`,
+          `${API_BASE_URL}/api/businesses${id}`,
           {
             method: "DELETE",
           }
@@ -1027,7 +1029,7 @@ function WebsitePreview({
   const [refreshKey, setRefreshKey] = useState(0);
 
   const previewUrl =
-    `http://localhost:8000/api/businesses/${business.id}/preview/index.html`;
+    `${API_BASE_URL}/api/businesses${business.id}/preview/index.html`;
 
   return (
     <section className="space-y-6">
@@ -1085,7 +1087,7 @@ function WebsitePreview({
           </button>
 
           <a
-            href={`http://localhost:8000/api/businesses/${business.id}/export`}
+            href={`${API_BASE_URL}/api/businesses{business.id}/export`}
             download
             className="flex items-center gap-2 rounded-lg border border-lime-300/30 bg-lime-300/10 px-3 py-2 text-xs font-semibold text-lime-300 transition hover:bg-lime-300/20"
           >
