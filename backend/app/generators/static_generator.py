@@ -695,7 +695,24 @@ body {
 .navigation a:hover {
     color: #ffb36b;
 }
+@media (max-width: 760px) {
+    .design-bold-vibrant .navigation {
+        background: #21170f;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    }
 
+    .design-bold-vibrant .navigation a {
+        color: #ffffff;
+    }
+
+    .design-bold-vibrant .navigation a:hover {
+        color: #ffb36b;
+    }
+
+    .design-bold-vibrant .menu-toggle span {
+        background: #ffffff;
+    }
+}
 h1, h2, h3 {
     font-family: 'DM Sans', sans-serif;
     font-weight: 800;
